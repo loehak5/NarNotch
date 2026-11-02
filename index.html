@@ -800,7 +800,7 @@
             <a href="index.html" class="brand">
                 <img src="favicon-32x32.png" alt="NarNotch Logo" width="28" height="28">
                 <span>NarNotch</span>
-                <span class="brand-badge">v1.6.0</span>
+                <span class="brand-badge">v1.7.0</span>
             </a>
             <div class="nav-links">
                 <a href="#fitur">Fitur Unggulan</a>
@@ -829,7 +829,7 @@
             <div class="hero-actions">
                 <a href="https://github.com/loehak5/NarNotch/releases" target="_blank" rel="noopener" class="btn btn-primary">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Unduh NarNotch (v1.6.0)
+                    Unduh NarNotch (v1.7.0)
                 </a>
                 <a href="https://github.com/loehak5/NarNotch" target="_blank" rel="noopener" class="btn btn-secondary">
                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
@@ -1055,14 +1055,53 @@
         </div>
 
         <div class="changelog-timeline">
-            <!-- v1.6.0 -->
+            <!-- v1.7.0 -->
             <div class="changelog-entry">
                 <div class="changelog-marker"></div>
                 <div class="changelog-card">
                     <div class="changelog-header">
                         <div class="changelog-version">
-                            <h3>NarNotch v1.6.0</h3>
+                            <h3>NarNotch v1.7.0</h3>
                             <span class="badge-latest">Versi Terbaru</span>
+                        </div>
+                        <span class="changelog-date">3 November 2026</span>
+                    </div>
+                    <ul class="changelog-list">
+                        <li>
+                            <span class="changelog-tag tag-feat">Fitur</span>
+                            <span><b>Multi-Output Audio Interface Selector:</b> Pemilihan langsung rute output suara (Line Out 3/4, Main Out 1/2, soundcard studio PreSonus Studio series, DAC, headphone, dsb.) langsung dari antarmuka Equalizer Control Center dengan sinkronisasi instan Windows Core Audio.</span>
+                        </li>
+                        <li>
+                            <span class="changelog-tag tag-feat">Fitur</span>
+                            <span><b>Multi-Device Equalizer Profiles:</b> Profil preset EQ (Dangdut, Bass+, Vocal, Rock, EDM, Pop, Flat) tersimpan independen untuk tiap perangkat audio dan otomatis termuat saat berganti antarmuka.</span>
+                        </li>
+                        <li>
+                            <span class="changelog-tag tag-fix">Perbaikan</span>
+                            <span><b>Distribusi Mandiri Penuh (.NET Self-Contained):</b> Paket aplikasi dan installer kini menyertakan runtime .NET 8 LTS lengkap secara mandiri, melenyapkan dialog peringatan instalasi .NET pada lingkungan bersih maupun mode sandbox.</span>
+                        </li>
+                        <li>
+                            <span class="changelog-tag tag-fix">Perbaikan</span>
+                            <span><b>Optimasi Buffer Notifikasi Audio 'Its Over Bell':</b> Nada notifikasi khas berbunyi jernih dan stabil, bebas dari glitch buffer, suara dengung, atau konflik filter DSP di seluruh mode Focus Assist (DND).</span>
+                        </li>
+                        <li>
+                            <span class="changelog-tag tag-enh">Peningkatan</span>
+                            <span><b>Arsitektur COM Core Audio SDK Modern:</b> Perbaikan GUID IPropertyStore dan implementasi native IPolicyConfig Windows 10 & 11 untuk deteksi nama hardware audio yang presisi.</span>
+                        </li>
+                        <li>
+                            <span class="changelog-tag tag-enh">Peningkatan</span>
+                            <span><b>Modern Inno Setup Master Installer v1.7.0:</b> Pemutakhiran paket instalasi mandiri dengan tema gelap modern, deteksi pembersihan versi lama menyeluruh, dan integrasi penuh shortcut Windows.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- v1.6.0 -->
+            <div class="changelog-entry past">
+                <div class="changelog-marker"></div>
+                <div class="changelog-card">
+                    <div class="changelog-header">
+                        <div class="changelog-version">
+                            <h3>NarNotch v1.6.0</h3>
                         </div>
                         <span class="changelog-date">2 November 2026</span>
                     </div>

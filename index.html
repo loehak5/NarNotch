@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NarNotch - Dynamic Island Produktivitas untuk Windows</title>
     <meta name="description" content="Aplikasi Dynamic Island modern untuk Windows 10 & 11 dengan Media Player, Telemetri Sistem, Integrasi Google Calendar, Bento Suite, dan 10-Band EQ.">
-    <link rel="icon" href="narnotch.ico" type="image/x-icon">
+
+    <!-- Browser Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="narnotch_256.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <style>
         :root {
             --bg-dark: #0a0b10;
@@ -37,8 +44,9 @@
             overflow-x: hidden;
             background-image: 
                 radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 60%),
-                radial-gradient(circle at 80% 40%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 20% 70%, rgba(129, 140, 248, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 80% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 20% 60%, rgba(129, 140, 248, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 60% 85%, rgba(56, 189, 248, 0.06) 0%, transparent 50%);
             background-attachment: fixed;
         }
 
@@ -76,6 +84,11 @@
             font-weight: 700;
             font-size: 1.25rem;
             letter-spacing: -0.5px;
+        }
+
+        .brand img {
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
         }
 
         .brand-badge {
@@ -123,7 +136,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 80px 0 60px;
+            padding: 80px 0 50px;
             text-align: center;
         }
 
@@ -412,6 +425,7 @@
         .badge-purple { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
         .badge-orange { background: rgba(249, 115, 22, 0.15); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.3); }
         .badge-red { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+        .badge-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
 
         .feature-card h3 {
             font-size: 1.25rem;
@@ -446,6 +460,88 @@
             content: "✓";
             color: var(--accent-green);
             font-weight: bold;
+        }
+
+        /* Settings Showcase Section */
+        .settings-showcase {
+            background: linear-gradient(180deg, rgba(17, 19, 27, 0.6) 0%, rgba(10, 11, 16, 0.9) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 48px 36px;
+            margin-bottom: 80px;
+        }
+
+        .settings-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .settings-tab-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .settings-tab-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .settings-tab-btn.active {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: rgba(56, 189, 248, 0.4);
+            color: var(--accent-blue);
+        }
+
+        .settings-display-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 440px;
+            margin-bottom: 24px;
+        }
+
+        .settings-img {
+            max-width: 100%;
+            width: 720px;
+            height: auto;
+            border-radius: 16px;
+            display: none;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+            animation: fadeIn 0.3s ease;
+        }
+
+        .settings-img.active {
+            display: block;
+        }
+
+        .settings-desc-box {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .settings-desc-box h4 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .settings-desc-box p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
         /* OAuth & Privacy Banner */
@@ -702,12 +798,13 @@
     <nav>
         <div class="container nav-content">
             <a href="index.html" class="brand">
-                <img src="narnotch.ico" alt="NarNotch Logo" width="28" height="28" style="border-radius: 6px;">
+                <img src="favicon-32x32.png" alt="NarNotch Logo" width="28" height="28">
                 <span>NarNotch</span>
                 <span class="brand-badge">v1.6.0</span>
             </a>
             <div class="nav-links">
                 <a href="#fitur">Fitur Unggulan</a>
+                <a href="#pengaturan">Studio Pengaturan</a>
                 <a href="#changelog">Changelog</a>
                 <a href="privacy.html">Kebijakan Privasi</a>
                 <a href="terms.html">Ketentuan</a>
@@ -727,7 +824,7 @@
             <h1>Pengalaman Dynamic Island<br>Kini Hadir di Windows</h1>
             <p>
                 NarNotch mengubah ruang kosong di atas layar menjadi pusat produktivitas interaktif.
-                Kontrol lagu favorit, monitor performa komputer, cek agenda Google Calendar, dan sesuaikan audio dalam satu sentuhan halus.
+                Kontrol lagu favorit, monitor performa hardware, sinkronkan agenda Google Calendar, dan sesuaikan 10-Band EQ dalam satu sentuhan halus.
             </p>
             <div class="hero-actions">
                 <a href="https://github.com/loehak5/NarNotch/releases" target="_blank" rel="noopener" class="btn btn-primary">
@@ -751,16 +848,18 @@
                         <img src="screenshots/calendar_agenda.png" id="slide-2" class="notch-screen-img" alt="NarNotch Calendar & Agenda">
                         <img src="screenshots/bento_suite.png" id="slide-3" class="notch-screen-img" alt="NarNotch Bento Suite">
                         <img src="screenshots/control_center.png" id="slide-4" class="notch-screen-img" alt="NarNotch Quick Control Center">
+                        <img src="screenshots/equalizer_10band.png" id="slide-5" class="notch-screen-img" alt="NarNotch 10-Band Equalizer">
                     </div>
                 </div>
 
-                <!-- Showcase Switcher Tabs -->
+                <!-- Showcase Switcher Tabs (6 Cards) -->
                 <div class="showcase-tabs">
                     <button class="tab-btn active" onclick="switchSlide(0)">🎵 Now Playing</button>
                     <button class="tab-btn" onclick="switchSlide(1)">⚡ System Telemetry</button>
                     <button class="tab-btn" onclick="switchSlide(2)">📅 Agenda & Kalender</button>
                     <button class="tab-btn" onclick="switchSlide(3)">🍅 Bento Suite</button>
-                    <button class="tab-btn" onclick="switchSlide(4)">🎛️ Control Center & EQ</button>
+                    <button class="tab-btn" onclick="switchSlide(4)">🎛️ Quick Control</button>
+                    <button class="tab-btn" onclick="switchSlide(5)">🎚️ 10-Band EQ (Dangdut)</button>
                 </div>
             </div>
         </div>
@@ -839,20 +938,89 @@
                 </ul>
             </div>
 
-            <!-- 5. Control Center & 10-Band EQ -->
+            <!-- 5. Control Center -->
             <div class="feature-card">
                 <div class="card-img-wrap">
                     <img src="screenshots/control_center.png" alt="Control Center Notch">
                 </div>
                 <span class="card-badge badge-red">Halaman 5</span>
-                <h3>Quick Controls & 10-Band EQ</h3>
-                <p>Pusat kontrol cepat bergaya macOS untuk Windows, lengkap dengan 10-Band Audio Equalizer canggih untuk menyetel keluaran suara speaker dan headphone.</p>
+                <h3>Quick Control Center</h3>
+                <p>Pusat kendali serbaguna Windows untuk akses instan ke pengaturan tampilan, suara master, dan pintasan utilitas tanpa membuka panel Windows.</p>
                 <ul class="feature-bullets">
-                    <li>Slider kecerahan layar & volume master instan</li>
-                    <li>Toggle Night Light, Do Not Disturb & Snipping Tool</li>
-                    <li>10-Band Parametric EQ berbasis NAudio</li>
-                    <li>Preset audio bawaan: Bass Boost, V-Shape, hingga Dangdut</li>
+                    <li>Slider kecerahan layar & volume master neon</li>
+                    <li>Toggle Night Light & Mode Do Not Disturb (DND)</li>
+                    <li>Pintasan cepat Snipping Tool & Kunci PC</li>
+                    <li>Pemberitahuan HUD visual saat nilai digeser</li>
                 </ul>
+            </div>
+
+            <!-- 6. 10-Band Parametric EQ -->
+            <div class="feature-card">
+                <div class="card-img-wrap">
+                    <img src="screenshots/equalizer_10band.png" alt="10-Band Equalizer Notch">
+                </div>
+                <span class="card-badge badge-amber">Audio Studio</span>
+                <h3>10-Band EQ & Preset Dangdut</h3>
+                <p>Penyetel frekuensi audio presisi mulai dari 31 Hz hingga 16 kHz. Ditenagai profil nada khusus mulai dari Flat, Bass+, hingga racikan khas Dangdut!</p>
+                <ul class="feature-bullets">
+                    <li>10 slider rentang frekuensi (31Hz – 16kHz)</li>
+                    <li>Preset eksklusif: Dangdut, Bass+, Vocal, Rock, EDM, Pop</li>
+                    <li>Output selector dinamis (Speaker / Headphone aktif)</li>
+                    <li>Pembaruan audio real-time berbasis DSP low-latency</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Settings Window Studio Section -->
+        <div class="settings-showcase" id="pengaturan">
+            <div class="section-header" style="margin-bottom: 30px;">
+                <div class="section-tag">Antarmuka Modern macOS Style</div>
+                <h2>Studio Pengaturan NarNotch</h2>
+                <p>Kustomisasi penuh setiap aspek Notch Anda melalui jendela preferensi bergaya Traffic Light macOS yang elegan dan terorganisir.</p>
+            </div>
+
+            <!-- Settings Tabs Switcher -->
+            <div class="settings-tabs">
+                <button class="settings-tab-btn active" onclick="switchSettingsTab(0)">
+                    <span>⚙️</span> Umum & Startup
+                </button>
+                <button class="settings-tab-btn" onclick="switchSettingsTab(1)">
+                    <span>🖥️</span> Display & Bezel
+                </button>
+                <button class="settings-tab-btn" onclick="switchSettingsTab(2)">
+                    <span>🎨</span> Appearance & Ukuran
+                </button>
+                <button class="settings-tab-btn" onclick="switchSettingsTab(3)">
+                    <span>⚡</span> VSync & Akselerasi GPU
+                </button>
+            </div>
+
+            <!-- Settings Image Display -->
+            <div class="settings-display-area">
+                <img src="screenshots/settings_general.png" id="set-img-0" class="settings-img active" alt="Pengaturan Umum NarNotch">
+                <img src="screenshots/settings_display.png" id="set-img-1" class="settings-img" alt="Pengaturan Display NarNotch">
+                <img src="screenshots/settings_appearance.png" id="set-img-2" class="settings-img" alt="Pengaturan Appearance NarNotch">
+                <img src="screenshots/settings_vsync.png" id="set-img-3" class="settings-img" alt="Pengaturan VSync Engine NarNotch">
+            </div>
+
+            <!-- Dynamic Settings Description -->
+            <div class="settings-desc-box">
+                <div id="set-desc-0">
+                    <h4>Tab Manager & Startup Windows</h4>
+                    <p>Atur kartu mana saja yang ingin diaktifkan di Notch dan aktifkan opsi mulai otomatis saat Windows menyala.</p>
+                </div>
+                <div id="set-desc-1" style="display: none;">
+                    <h4>Display & Concave Ear Fillets</h4>
+                    <p>Pilih monitor target (Layar 1, Layar 2, atau Ikuti Kursor), aktifkan lengkungan kuping bezel, dan sembunyikan otomatis di mode Full Screen.</p>
+                </div>
+                <div id="set-desc-2" style="display: none;">
+                    <h4>Appearance & Proporsi Skala</h4>
+                    <p>Sesuaikan proporsi skala Notch (Auto, 100%, 115%, 130%, 150%), animasi menggelembung (Bulge Effect), dan format teks saat mengecil.</p>
+                </div>
+                <div id="set-desc-3" style="display: none;">
+                    <h4>VSync Engine & Dedicated GPU</h4>
+                    <p>Mendeteksi GPU dedicated (misal: NVIDIA RTX 4070 Ti) dan iGPU Intel, dengan refresh rate sinkron hingga 240 FPS dan Fixed HWND rendering.</p>
+                </div>
             </div>
         </div>
 
@@ -1018,6 +1186,7 @@
                     <h5>Navigasi</h5>
                     <ul>
                         <li><a href="#fitur">Fitur Unggulan</a></li>
+                        <li><a href="#pengaturan">Studio Pengaturan</a></li>
                         <li><a href="#changelog">Catatan Rilis (Changelog)</a></li>
                         <li><a href="https://github.com/loehak5/NarNotch/releases" target="_blank" rel="noopener">Rilis Installer</a></li>
                         <li><a href="https://github.com/loehak5/NarNotch" target="_blank" rel="noopener">Repositori GitHub</a></li>
@@ -1040,23 +1209,20 @@
         </div>
     </footer>
 
-    <!-- Interactive Showcase Script -->
+    <!-- Interactive Scripts -->
     <script>
+        // Hero Showcase Slider (6 tabs)
         let currentSlide = 0;
-        const totalSlides = 5;
+        const totalSlides = 6;
         let slideTimer;
 
         function switchSlide(index) {
             currentSlide = index;
-            // Update images
             for (let i = 0; i < totalSlides; i++) {
                 const img = document.getElementById('slide-' + i);
-                if (img) {
-                    img.classList.toggle('active', i === index);
-                }
+                if (img) img.classList.toggle('active', i === index);
             }
-            // Update tab buttons
-            const buttons = document.querySelectorAll('.tab-btn');
+            const buttons = document.querySelectorAll('.showcase-tabs .tab-btn');
             buttons.forEach((btn, i) => {
                 btn.classList.toggle('active', i === index);
             });
@@ -1073,8 +1239,21 @@
             slideTimer = setInterval(autoNextSlide, 4500);
         }
 
-        // Start auto rotation
         slideTimer = setInterval(autoNextSlide, 4500);
+
+        // Settings Studio Tabs
+        function switchSettingsTab(index) {
+            for (let i = 0; i < 4; i++) {
+                const img = document.getElementById('set-img-' + i);
+                const desc = document.getElementById('set-desc-' + i);
+                if (img) img.classList.toggle('active', i === index);
+                if (desc) desc.style.display = (i === index) ? 'block' : 'none';
+            }
+            const buttons = document.querySelectorAll('.settings-tab-btn');
+            buttons.forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+        }
     </script>
 </body>
 
